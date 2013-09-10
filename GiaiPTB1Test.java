@@ -8,7 +8,7 @@ public class GiaiPTB1Test {
 	public void test1() {
 		GiaiPTB1 tester = new GiaiPTB1();
 		
-		assertEquals("Must be -1", 1, tester.giaiPTB1(1, -1));
+		assertEquals("Must be 1", 1, tester.giaiPTB1(1, -1));
 	}
 	
 	@Test
