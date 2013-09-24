@@ -1,6 +1,6 @@
 MIN_VALUE = 2.2250738585072014e-308
 MAX_VALUE = 1.7976931348623157e+308
-EPSILONE = 1e-10
+EPSILONE = 1e-14
 
 # convert input to number
 def toNumber(arg):
@@ -45,14 +45,14 @@ def validate3Inputs(arg1, arg2, arg3):
     else:
         return False
 
-# case 1: normal triangle
+# case 5: normal triangle
 def isATriangle(arg1, arg2, arg3):
     if (arg1 + arg2 - arg3 > EPSILONE) & (arg1 + arg3 - arg2 > EPSILONE) & (arg2 + arg3 - arg1 > EPSILONE):
         return True
     else:
         return False
 
-# case 2: isosceles triangle
+# case 4: isosceles triangle
 def isIsoscelesTriangle(arg1, arg2, arg3):
     if isATriangle(arg1, arg2, arg3):
         if (abs(arg1 - arg2) < EPSILONE) | (abs(arg2 - arg3) < EPSILONE) | (abs(arg3 - arg1) < EPSILONE):
@@ -66,11 +66,11 @@ def isIsoscelesTriangle(arg1, arg2, arg3):
 def isRightTriangle(arg1, arg2, arg3):
     if isATriangle(arg1, arg2, arg3):
         if (arg1 * arg1 >= EPSILONE) & (arg2 * arg2 >= EPSILONE) & (arg3 * arg3 >= EPSILONE):
-            if (abs(arg1 * arg1 + arg2 * arg2 - arg3 * arg3) < EPSILONE):
+            if (abs(arg1 * arg1 + arg2 * arg2 - arg3 * arg3) < arg3*EPSILONE):
                 return True
-            if (abs(arg2 * arg2 + arg3 * arg3 - arg1 * arg1) < EPSILONE):
+            if (abs(arg2 * arg2 + arg3 * arg3 - arg1 * arg1) < arg3*EPSILONE):
                 return True
-            if (abs(arg3 * arg3 + arg1 * arg1 - arg2 * arg2) < EPSILONE):
+            if (abs(arg3 * arg3 + arg1 * arg1 - arg2 * arg2) < arg3*EPSILONE):
                 return True
             return False
         else:
@@ -78,20 +78,20 @@ def isRightTriangle(arg1, arg2, arg3):
     else:
         return False
 
-#case 5: isosceles right triangle
+#case 2: isosceles right triangle
 def isIsoscelesRightTriangle(arg1, arg2, arg3):
     if isATriangle(arg1, arg2, arg3):
-        if (abs(arg1 * arg1 + arg2 * arg2 - arg3 * arg3) < EPSILONE) & (abs(arg1 - arg2) < EPSILONE):
+        if (abs(arg1 * arg1 + arg2 * arg2 - arg3 * arg3) < arg3*EPSILONE) & (abs(arg1 - arg2) < EPSILONE):
             return True
-        if (abs(arg2 * arg2 + arg3 * arg3 - arg1 * arg1) < EPSILONE) & (abs(arg2 - arg3) < EPSILONE):
+        if (abs(arg2 * arg2 + arg3 * arg3 - arg1 * arg1) < arg1*EPSILONE) & (abs(arg2 - arg3) < EPSILONE):
             return True
-        if (abs(arg3 * arg3 + arg1 * arg1 - arg2 * arg2) < EPSILONE) & (abs(arg3 - arg1) < EPSILONE):
+        if (abs(arg3 * arg3 + arg1 * arg1 - arg2 * arg2) < arg2*EPSILONE) & (abs(arg3 - arg1) < EPSILONE):
             return True
         return False
     else:
         return False
 
-# case 4: equilateral triangle
+# case 1: equilateral triangle
 def isEquilateralTriangle(arg1, arg2, arg3):
     if isATriangle(arg1, arg2, arg3):
         if (abs(arg1 - arg2) < EPSILONE) & (abs(arg2 - arg3) < EPSILONE) & (abs(arg3 - arg1) < EPSILONE):
