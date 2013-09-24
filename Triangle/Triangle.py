@@ -1,6 +1,14 @@
+OUTPUT01 = 'equilateral triangle'
+OUTPUT02 = 'isosceles right triangle'
+OUTPUT03 = 'right triangle'
+OUTPUT04 = 'isosceles triangle'
+OUTPUT05 = 'triangle'
+OUTPUT06 = 'not identified'
+OUTPUT07 = 'error: invalid input'
+
 MIN_VALUE = 2.2250738585072014e-308
 MAX_VALUE = 1.7976931348623157e+308
-EPSILONE = 1e-14
+EPSILONE = 1e-10
 
 # convert input to number
 def toNumber(arg):
@@ -102,7 +110,7 @@ def isEquilateralTriangle(arg1, arg2, arg3):
         return False
     
 # CLASSIFY TRIANGLE
-def getTriangleType(arg1="", arg2="", arg3=""):
+def detect_triangle(arg1="", arg2="", arg3=""):
     result1 = validateInput(arg1)
     result2 = validateInput(arg2)
     result3 = validateInput(arg3)
@@ -111,20 +119,20 @@ def getTriangleType(arg1="", arg2="", arg3=""):
     
     if (result == True):
         if (isEquilateralTriangle(result1, result2, result3)):
-            return 'equilateral triangle'
+            return OUTPUT01
         else:
             if (isIsoscelesRightTriangle(result1, result2, result3)):
-                return 'isosceles right triangle'
+                return OUTPUT02
             else:
                 if (isRightTriangle(result1, result2, result3)):
-                    return 'right triangle'
+                    return OUTPUT03
                 else:
                     if (isIsoscelesTriangle(result1, result2, result3)):
-                        return 'isosceles triangle'
+                        return OUTPUT04
                     else:
                         if (isATriangle(result1, result2, result3)):
-                            return 'triangle'
+                            return OUTPUT05
                         else:
-                            return 'not identified'
+                            return OUTPUT06
     else:
-        return 'error: invalid input'
+        return OUTPUT07
