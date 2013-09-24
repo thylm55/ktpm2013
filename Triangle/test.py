@@ -4,7 +4,6 @@ OUTPUT03 = 'right triangle'
 OUTPUT04 = 'isosceles triangle'
 OUTPUT05 = 'triangle'
 OUTPUT06 = 'not identified'
-OUTPUT07 = 'error: invalid input'
 
 import unittest
 import math
@@ -74,39 +73,55 @@ class TriangleTest(unittest.TestCase):
     # input test cases
     def test07a(self):
         result = detect_triangle(-2, 3, 4)
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
 
     def test07b(self):
         result = detect_triangle(2, -3, 4)
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
 
     def test07c(self):
         result = detect_triangle(2, 3, -4)
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
 
     def test08a(self):
         result = detect_triangle("a", 3, 4)
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
 
     def test08b(self):
         result = detect_triangle(2, "math.sqrt(2)", 4)
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
 
     def test08c(self):
         result = detect_triangle(2, 3, "2**32-1")
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
 
     def test09a(self):
         result = detect_triangle()
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
 
     def test09b(self):
         result = detect_triangle(2)
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
 
     def test09c(self):
         result = detect_triangle(2, 3)
-        self.assertEqual(result, OUTPUT07)
+        self.assertEqual(result, OUTPUT06)
+
+    def test10a(self):
+        result = detect_triangle(0, 0, 0)
+        self.assertEqual(result, OUTPUT06)
+
+    def test10b(self):
+        result = detect_triangle(0, 3, 4)
+        self.assertEqual(result, OUTPUT06)
+
+    def test10c(self):
+        result = detect_triangle(2, 0, 4)
+        self.assertEqual(result, OUTPUT06)
+
+    def test10d(self):
+        result = detect_triangle(2, 3, 0)
+        self.assertEqual(result, OUTPUT06)
 
 # run test
 if __name__ == '__main__':

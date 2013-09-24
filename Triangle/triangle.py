@@ -4,7 +4,6 @@ OUTPUT03 = 'right triangle'
 OUTPUT04 = 'isosceles triangle'
 OUTPUT05 = 'triangle'
 OUTPUT06 = 'not identified'
-OUTPUT07 = 'error: invalid input'
 
 MIN_VALUE = 2.2250738585072014e-308
 MAX_VALUE = 1.7976931348623157e+308
@@ -135,4 +134,4 @@ def detect_triangle(arg1="", arg2="", arg3=""):
                         else:
                             return OUTPUT06
     else:
-        return OUTPUT07
+        return OUTPUT06
