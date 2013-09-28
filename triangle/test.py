@@ -19,16 +19,16 @@ class TriangleTest(unittest.TestCase):
         self.assertEqual(result, OUTPUT01)
         
     def test01b(self):
-        result = detect_triangle("3", 3, 3)
+        result = detect_triangle(2**32-1, 2**32-1, 2**32-1)
         self.assertEqual(result, OUTPUT01)
 
     def test01c(self):
-        result = detect_triangle("3", "3", "3")
+        result = detect_triangle(1e-30, 1e-30, 1e-30)
         self.assertEqual(result, OUTPUT01)
 
     # isosceles right triangle
     def test02a(self):
-        result = detect_triangle(2, "2", math.sqrt(8))
+        result = detect_triangle(2, 2, math.sqrt(8))
         self.assertEqual(result, OUTPUT02)
         
     def test02b(self):
@@ -58,15 +58,35 @@ class TriangleTest(unittest.TestCase):
         self.assertEqual(result, OUTPUT04)
 
     def test04b(self):
-        result = detect_triangle(2**132-1, 2**132-1, "1")
+        result = detect_triangle(2**32-1, 2**32-1, 4)
+        self.assertEqual(result, OUTPUT04)
+
+    def test04c(self):
+        result = detect_triangle(2**32-1, 2**32-1, 2**32-2)
+        self.assertEqual(result, OUTPUT04)
+
+    def test04d(self):
+        result = detect_triangle(2**32-1, 4, 2**32-1)
+        self.assertEqual(result, OUTPUT04)
+
+    def test04d(self):
+        result = detect_triangle(2**32-1, 4, 2**32-1)
         self.assertEqual(result, OUTPUT04)
 
     # triangle
-    def test05(self):
+    def test05a(self):
         result = detect_triangle(2, 3, 4)
         self.assertEqual(result, OUTPUT05)
-        
-    def test06(self):
+
+    def test05b(self):
+        result = detect_triangle(2**32-1, 2**32-2, 2**32-3)
+        self.assertEqual(result, OUTPUT05)
+
+    def test05c(self):
+        result = detect_triangle(2**32-1, 2**32-2, 3)
+        self.assertEqual(result, OUTPUT05) 
+
+    def test06a(self):
         result = detect_triangle(1, 2, 3)
         self.assertEqual(result, OUTPUT06)
 

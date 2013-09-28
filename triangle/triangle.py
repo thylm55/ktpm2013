@@ -5,8 +5,8 @@ OUTPUT04 = 'isosceles triangle'
 OUTPUT05 = 'triangle'
 OUTPUT06 = 'not identified'
 
-MIN_VALUE = 2.2250738585072014e-308
-MAX_VALUE = 1.7976931348623157e+308
+MIN_VALUE = 1e-30
+MAX_VALUE = 2**32-1
 EPSILONE = 1e-10
 
 # convert input to number
@@ -24,7 +24,7 @@ def toNumber(arg):
 
 # check if a number in valid range
 def isValidRange(number):
-    if (number > MIN_VALUE) & (number <= MAX_VALUE):
+    if (number >= MIN_VALUE) & (number <= MAX_VALUE):
         return True
     else:
         return False
@@ -100,11 +100,8 @@ def isIsoscelesRightTriangle(arg1, arg2, arg3):
 
 # case 1: equilateral triangle
 def isEquilateralTriangle(arg1, arg2, arg3):
-    if isATriangle(arg1, arg2, arg3):
-        if (abs(arg1 - arg2) < EPSILONE) & (abs(arg2 - arg3) < EPSILONE) & (abs(arg3 - arg1) < EPSILONE):
-            return True
-        else:
-            return False
+    if (abs(arg1 - arg2) < EPSILONE) & (abs(arg2 - arg3) < EPSILONE) & (abs(arg3 - arg1) < EPSILONE):
+        return True
     else:
         return False
     
