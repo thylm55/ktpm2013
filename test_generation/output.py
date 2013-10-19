@@ -147,51 +147,49 @@ class MainTest(unittest.TestCase):
 def test_generator(params):
     paramsLen = len(params)
     def test(self):
-        try:
-            if (paramsLen == 0):
-                main()
-            if (paramsLen == 1):
-                main(params[0])
-            if (paramsLen == 2):
-                main(params[0], params[1])
-            if (paramsLen == 3):
-                main(params[0], params[1]
-                     , params[2])
-            if (paramsLen == 4):
-                main(params[0], params[1]
-                     , params[2], params[3])
-            if (paramsLen == 5):
-                main(params[0], params[1]
-                     , params[2], params[3]
-                     , params[4])
-            if (paramsLen == 6):
-                main(params[0], params[1]
-                     , params[2], params[3]
-                     , params[4], params[5])
-            if (paramsLen == 7):
-                main(params[0], params[1]
+        if (paramsLen == 0):
+            result = main()
+        if (paramsLen == 1):
+            result = main(params[0])
+        if (paramsLen == 2):
+            result = main(params[0], params[1])
+        if (paramsLen == 3):
+            result = main(params[0], params[1]
+                    , params[2])
+        if (paramsLen == 4):
+            result = main(params[0], params[1]
+                    , params[2], params[3])
+        if (paramsLen == 5):
+            result = main(params[0], params[1]
+                    , params[2], params[3]
+                    , params[4])
+        if (paramsLen == 6):
+            result = main(params[0], params[1]
+                    , params[2], params[3]
+                    , params[4], params[5])
+        if (paramsLen == 7):
+            result = main(params[0], params[1]
                      , params[2], params[3]
                      , params[4], params[5]
                      , params[6])
-            if (paramsLen == 8):
-                main(params[0], params[1]
+        if (paramsLen == 8):
+            result = main(params[0], params[1]
                      , params[2], params[3]
                      , params[4], params[5]
                      , params[6], params[7])
-            if (paramsLen == 9):
-                main(params[0], params[1]
+        if (paramsLen == 9):
+            result = main(params[0], params[1]
                      , params[2], params[3]
                      , params[4], params[5]
                      , params[6], params[7]
                      , params[8])
-            if (paramsLen == 10):
-                main(params[0], params[1]
+        if (paramsLen == 10):
+            result = main(params[0], params[1]
                      , params[2], params[3]
                      , params[4], params[5]
                      , params[6], params[7]
                      , params[8], params[9])
-        except:
-            self.fail("Raised an exception.")
+        self.assertEqual(result, "")
     return test
     
 # run test
